@@ -17,11 +17,6 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params.fetch(:id))
   end
 
-  private
-    def movie_params    
-    params.require(:movie).permit(:title, :description, :image_url, :released_on)
-    end
-  end
 
   def create
     @movie = Movie.new(movie_params)
@@ -57,3 +52,12 @@ class MoviesController < ApplicationController
 
     redirect_to movies_url, notice: "Movie was successfully destroyed."
   end
+
+ 
+  private
+    def movie_params    
+    params.require(:movie).permit(:title, :description, :image_url, :released_on)
+    end
+
+
+end
